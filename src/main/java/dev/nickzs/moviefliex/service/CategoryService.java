@@ -22,8 +22,8 @@ public class CategoryService {
         return repository.save(category);
     }
 
-    public Category findById(long id) {
-        return repository.findById(id).orElse(null);
+    public Optional<Category> findById(long id) {
+        return repository.findById(id);
     }
 
     public void deleteById(long id){
