@@ -32,7 +32,7 @@ public class CategoryController {
     @PostMapping()
     public ResponseEntity<CategoryResponse> saveCategory(@RequestBody CategoryRequest request) {
         Category newCategory = CategoryMapper.toCategory(request);
-        newCategory = categoryService.saveCategory(newCategory);
+        newCategory = categoryService.save(newCategory);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 CategoryMapper.toCategoryResponse(newCategory)

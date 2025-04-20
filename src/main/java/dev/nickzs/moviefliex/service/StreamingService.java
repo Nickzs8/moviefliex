@@ -1,7 +1,7 @@
 package dev.nickzs.moviefliex.service;
 
-import dev.nickzs.moviefliex.entity.Category;
-import dev.nickzs.moviefliex.repository.CategoryRepository;
+import dev.nickzs.moviefliex.entity.Streaming;
+import dev.nickzs.moviefliex.repository.StreamingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -10,19 +10,19 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
+public class StreamingService {
 
-    private final CategoryRepository repository;
+    private final StreamingRepository repository;
 
-    public List<Category> findAll(){
+    public List<Streaming> findAll(){
         return repository.findAll();
     }
 
-    public Category save(Category category) {
-        return repository.save(category);
+    public Streaming save(Streaming streaming) {
+        return repository.save(streaming);
     }
 
-    public Optional<Category> findById(long id) {
+    public Optional<Streaming> findById(long id) {
         return repository.findById(id);
     }
 
