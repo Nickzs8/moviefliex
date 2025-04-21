@@ -40,16 +40,16 @@ public class MovieController {
         );
     }
 
-/*    @GetMapping("/{id}")
-    public ResponseEntity<StreamingResponse> findById(@PathVariable long id) {
-        return streamingService.findById(id)
-                .map(streaming -> ResponseEntity.ok(StreamingMapper.toStreamingResponse(streaming)))
+    @GetMapping("/{id}")
+    public ResponseEntity<MovieResponse> findById(@PathVariable long id) {
+        return movieService.findById(id)
+                .map(streaming -> ResponseEntity.ok(MovieMapper.toMovieResponse(streaming)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable long id){
-        streamingService.deleteById(id);
+        movieService.deleteById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-    }*/
+    }
 }
