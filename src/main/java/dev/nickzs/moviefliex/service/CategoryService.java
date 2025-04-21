@@ -1,6 +1,8 @@
 package dev.nickzs.moviefliex.service;
 
 import dev.nickzs.moviefliex.entity.Category;
+import dev.nickzs.moviefliex.entity.Movie;
+import dev.nickzs.moviefliex.entity.Streaming;
 import dev.nickzs.moviefliex.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,5 +30,23 @@ public class CategoryService {
 
     public void deleteById(long id){
         repository.deleteById(id);
+    }
+
+    public Optional<Category> update(Long id, Category updatedCategory){
+        Optional<Category> optCategory = repository.findById(id);
+
+        if(optCategory.isPresent()){
+            
+
+            Category category = optCategory.get();
+
+            category.setName(updatedCategory.getName());
+
+            repository.save(category);
+
+            return Optional.of(category);
+        }
+
+        return Optional.empty();
     }
 }

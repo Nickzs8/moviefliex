@@ -1,5 +1,6 @@
 package dev.nickzs.moviefliex.service;
 
+import dev.nickzs.moviefliex.entity.Category;
 import dev.nickzs.moviefliex.entity.Streaming;
 import dev.nickzs.moviefliex.repository.StreamingRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,23 @@ public class StreamingService {
 
     public void deleteById(long id){
         repository.deleteById(id);
+    }
+
+    public Optional<Streaming> update(Long id, Streaming updatedstreaming){
+        Optional<Streaming> optstreaming = repository.findById(id);
+
+        if(optstreaming.isPresent()){
+
+
+            Streaming streaming = optstreaming.get();
+
+            streaming.setName(updatedstreaming.getName());
+
+            repository.save(streaming);
+
+            return Optional.of(streaming);
+        }
+
+        return Optional.empty();
     }
 }
