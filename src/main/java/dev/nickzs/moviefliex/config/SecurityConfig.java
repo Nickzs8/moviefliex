@@ -1,5 +1,6 @@
 package dev.nickzs.moviefliex.config;
 
+import jakarta.servlet.DispatcherType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,8 +29,8 @@ public class SecurityConfig {
                 .csrf(csfr -> csfr.disable())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorized ->
-                        authorized
+                .authorizeHttpRequests(authorized -> authorized
+                                .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                                 .requestMatchers(HttpMethod.POST, "/moviefliex/auth/register").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/moviefliex/auth/login").permitAll()
                                 .anyRequest().authenticated()

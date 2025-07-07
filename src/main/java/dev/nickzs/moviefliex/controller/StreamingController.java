@@ -9,6 +9,7 @@ import dev.nickzs.moviefliex.entity.Streaming;
 import dev.nickzs.moviefliex.mapper.CategoryMapper;
 import dev.nickzs.moviefliex.mapper.StreamingMapper;
 import dev.nickzs.moviefliex.service.StreamingService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class StreamingController {
 
 
     @PostMapping()
-    public ResponseEntity<StreamingResponse> save(@RequestBody StreamingRequest request) {
+    public ResponseEntity<StreamingResponse> save(@Valid @RequestBody StreamingRequest request) {
         Streaming newStreaming = StreamingMapper.toStreaming(request);
         newStreaming = streamingService.save(newStreaming);
 
