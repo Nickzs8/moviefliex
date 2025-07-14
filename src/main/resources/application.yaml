@@ -15,6 +15,12 @@ spring:
   flyway:
     enabled: true
 
+  springdoc:
+    api-docs:
+      path: /v3/api-docs
+    swagger-ui:
+      path: /swagger-ui/index.html
+
 moviefliex:
   security:
     secret: "secret-word"

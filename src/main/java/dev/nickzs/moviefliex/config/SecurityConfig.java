@@ -33,7 +33,10 @@ public class SecurityConfig {
                                 .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
                                 .requestMatchers(HttpMethod.POST, "/moviefliex/auth/register").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/moviefliex/auth/login").permitAll()
-                                .anyRequest().authenticated()
+                                .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
+
+
+                        .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
