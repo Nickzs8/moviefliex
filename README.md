@@ -37,16 +37,16 @@ Follow the steps below to set up and run the project on your local machine.
 
 ### Installation Steps
 
-1.  **Clone the Repository:**
+1. **Clone the Repository:**
     ```bash
     git clone <your-repository-url>
     cd moviefliex
     ```
 
-2.  **Configure Environment Variables:**
+2. **Configure Environment Variables:**
     In the project's root directory, create a new file named `.env`. This file is used to store sensitive credentials securely, separate from the source code.
 
-3.  **Populate the `.env` file:**
+3. **Populate the `.env` file:**
     Copy the template below into your `.env` file and replace the placeholder values with your local MySQL database credentials.
     ```dotenv
     DATABASE_URL=jdbc:mysql://localhost:3306/moviefliex_db
@@ -55,12 +55,12 @@ Follow the steps below to set up and run the project on your local machine.
     ```
     *Note: Please ensure the `moviefliex_db` database schema exists in your MySQL instance before running the application.*
 
-4.  **Build the Project:**
+4. **Build the Project:**
     Use the Maven Wrapper to compile the project and download all necessary dependencies.
     ```powershell
     # On Windows (PowerShell)
     .\mvnw.cmd clean install
-    
+
     # On Linux/macOS
     ./mvnw clean install
     ```
@@ -68,9 +68,27 @@ Follow the steps below to set up and run the project on your local machine.
 ## Running the Application
 
 Once the project has been successfully built, you can run the application using the following command:
-```powershell
+
+```bash
 # On Windows (PowerShell)
 .\mvnw.cmd spring-boot:run
 
 # On Linux/macOS
 ./mvnw spring-boot:run
+```
+The API will start and be available at http://localhost:8080.
+
+## API Documentation
+
+The interactive API documentation, powered by **Swagger UI**, is available once the application is running. It provides a detailed overview of all available endpoints and allows for direct interaction with the API.
+
+- **Swagger UI URL:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)  
+- **OpenAPI 3.0 JSON URL:** [http://localhost:8080/v3/api-docs](http://localhost:8080/v3/api-docs)
+
+In the Swagger UI, you can click the **"Authorize"** button and paste a **JWT** (obtained from the login endpoint) to test the protected routes directly in your browser.
+
+## Author
+
+- **Níckolas Davi**
+- **Email:** [nickolasdavi407@gmail.com](mailto:nickolasdavi407@gmail.com)
+
