@@ -1,6 +1,7 @@
 package dev.nickzs.moviefliex.controller;
 
 import dev.nickzs.moviefliex.config.TokenService;
+import dev.nickzs.moviefliex.controller.interfaces.AuthControllerApi;
 import dev.nickzs.moviefliex.controller.request.LoginRequest;
 import dev.nickzs.moviefliex.controller.request.UserRequest;
 import dev.nickzs.moviefliex.controller.response.LoginResponse;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/moviefliex/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthController implements AuthControllerApi {
 
     private final UserService userService;
     private final AuthenticationManager authenticationManager;

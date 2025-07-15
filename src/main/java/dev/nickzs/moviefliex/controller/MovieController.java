@@ -1,5 +1,6 @@
 package dev.nickzs.moviefliex.controller;
 
+import dev.nickzs.moviefliex.controller.interfaces.MovieControllerApi;
 import dev.nickzs.moviefliex.controller.request.MovieRequest;
 import dev.nickzs.moviefliex.controller.response.MovieResponse;
 import dev.nickzs.moviefliex.entity.Movie;
@@ -17,7 +18,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/moviefliex/movie")
 @RequiredArgsConstructor
-public class MovieController {
+public class MovieController implements MovieControllerApi {
 
     private final MovieService movieService;
 
@@ -30,7 +31,6 @@ public class MovieController {
 
         return ResponseEntity.ok(movies);
     }
-
 
     @PostMapping()
     public ResponseEntity<MovieResponse> save(@Valid @RequestBody MovieRequest request) {

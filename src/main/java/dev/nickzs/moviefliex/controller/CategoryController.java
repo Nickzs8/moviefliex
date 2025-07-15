@@ -1,9 +1,8 @@
 package dev.nickzs.moviefliex.controller;
 
+import dev.nickzs.moviefliex.controller.interfaces.CategoryControllerApi;
 import dev.nickzs.moviefliex.controller.request.CategoryRequest;
-import dev.nickzs.moviefliex.controller.request.MovieRequest;
 import dev.nickzs.moviefliex.controller.response.CategoryResponse;
-import dev.nickzs.moviefliex.controller.response.MovieResponse;
 import dev.nickzs.moviefliex.entity.Category;
 import dev.nickzs.moviefliex.mapper.CategoryMapper;
 import dev.nickzs.moviefliex.mapper.MovieMapper;
@@ -20,7 +19,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/moviefliex/category")
 @RequiredArgsConstructor
-public class CategoryController {
+public class CategoryController implements CategoryControllerApi {
 
     private final CategoryService categoryService;
 

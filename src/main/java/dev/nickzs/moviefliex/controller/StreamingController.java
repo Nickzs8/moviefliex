@@ -1,5 +1,6 @@
 package dev.nickzs.moviefliex.controller;
 
+import dev.nickzs.moviefliex.controller.interfaces.StreamingControllerApi;
 import dev.nickzs.moviefliex.controller.request.CategoryRequest;
 import dev.nickzs.moviefliex.controller.request.StreamingRequest;
 import dev.nickzs.moviefliex.controller.response.CategoryResponse;
@@ -21,7 +22,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/moviefliex/streaming")
 @RequiredArgsConstructor
-public class StreamingController {
+public class StreamingController implements StreamingControllerApi {
 
     private final StreamingService streamingService;
 

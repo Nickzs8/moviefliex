@@ -1,5 +1,12 @@
 package dev.nickzs.moviefliex.controller.request;
 
-public record LoginRequest(String email,
-                           String password) {
+import io.swagger.v3.oas.annotations.media.Schema;
+
+public record LoginRequest(
+        @Schema(description = "User's email address", example = "user@example.com")
+        String email,
+
+        @Schema(description = "User's password", example = "password123", format = "password")
+        String password
+) {
 }
